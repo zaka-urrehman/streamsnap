@@ -102,3 +102,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+::selection {
+  background-color: #00e1ff; /* Replace with your desired background color */
+  color: #000; /* Replace with your desired text color */
+}

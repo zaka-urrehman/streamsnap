@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const colors = require("tailwindcss/colors");
 
 const config: Config = {
     darkMode: ["class"],
@@ -19,6 +20,11 @@ const config: Config = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+
+			...colors,
+			myPrimary: colors.black,
+			mySecondary: colors.cyan,
+
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
