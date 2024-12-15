@@ -4,6 +4,8 @@ import PageWrapper from "./wrappers/PageWrapper";
 import InputField from "@/components/shared/inputs/InputField";
 import TextareaField from "@/components/shared/inputs/TextAreaField";
 import { useState } from "react";
+import H2 from "./texts/H2";
+import P1 from "./texts/P1";
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -25,13 +27,13 @@ export default function Contact() {
                 <div className="container px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div>
-                            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white mb-6">
+                            <H2>
                                 Get in Touch
-                            </h2>
-                            <p className="text-xl text-gray-400 mb-8">
+                            </H2>
+                            <P1>
                                 Have questions about StreamSnap? Our team is here to help you succeed.
-                            </p>
-                            <div className="space-y-4">
+                            </P1>
+                            <div className="space-y-4 mt-4">
                                 <div>
                                     <h3 className="text-lg font-semibold text-mySecondary-400 mb-2">Email</h3>
                                     <p className="text-gray-300">support@streamsnap.com</p>

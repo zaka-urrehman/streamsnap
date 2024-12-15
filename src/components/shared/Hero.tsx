@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import PageWrapper from "./wrappers/PageWrapper"
 import { ArrowRight } from 'lucide-react'
+import H1 from './texts/H1'
 
 export default function Hero() {
     return (
@@ -12,11 +13,11 @@ export default function Hero() {
 
             <PageWrapper>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center bg-transparent z-10 relative">
-                    <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0 ">
-                        <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-center lg:text-left max-w-3xl mx-auto lg:mx-0 leading-tight mb-6">
+                    <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0 ">                       
+                        <H1>
                             AI-Powered Instagram Automation
                             <span className="block text-mySecondary-400">Smarter Growth, Seamless Engagement!</span>
-                        </h1>
+                        </H1>
 
                         <p className=" text-gray-400 text-center lg:text-left mb-8">
                             Our platform simplifies your Instagram management by automating responses, optimizing your content
@@ -36,7 +37,7 @@ export default function Hero() {
                         </div>
                     </div>
                     <div className="lg:w-1/2 bg-transparent z-10 relative">
-                       
+
                         <div className='flex h-full w-full gap-4 '>
                             <div className='grid grid-rows-[40%,40%,20%] gap-x-4 gap-y-2 '>
                                 <div className=' w-full h-full'>
