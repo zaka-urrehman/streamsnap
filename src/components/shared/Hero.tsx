@@ -5,7 +5,7 @@ import H1 from './texts/H1'
 
 export default function Hero() {
     return (
-        <section className=" overflow-hidden bg-black text-white py-20 md:py-32 relative">
+        <section className=" overflow-hidden bg-black text-white py-20  relative">
             <div className='absolute inset-0 w-1/2 h-10 mx-auto bg-mySecondary-500 opacity-70 rounded-b-full blur-2xl z-0' />
             <div className='absolute inset-0 w-1/2 h-64 mx-auto bg-gradient-to-t from-myPrimary to-mySecondary-500 opacity-50 rounded-b-full blur-3xl backdrop:blur-lg z-0' />
             {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div> */}
@@ -39,7 +39,7 @@ export default function Hero() {
                     <div className="lg:w-1/2 bg-transparent z-10 relative">
 
                         <div className='flex h-full w-full gap-4 '>
-                            <div className='grid grid-rows-[40%,40%,20%] gap-x-4 gap-y-2 '>
+                            <div className='grid grid-rows-[40%,40%,20%] gap-x-4 gap-y-1 '>
                                 <div className=' w-full h-full'>
                                     <Image src={'/images/person-1.webp'} alt='an image of instagram creator' height={1000} width={1000} className='object-cover  w-full h-full rounded-l-full border-l-4 border-l-mySecondary-500' />
                                 </div>
@@ -50,7 +50,7 @@ export default function Hero() {
                                 <div></div> {/* empty div to take the space */}
                             </div>
 
-                            <div className='grid grid-rows-[20%,40%,40%] gap-4'>
+                            <div className='grid grid-rows-[20%,40%,40%] gap-x-4 gap-y-1'>
                                 <div></div> {/* empty div  to take the space*/}
 
                                 <div className=' w-full h-full'>

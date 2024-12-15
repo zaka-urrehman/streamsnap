@@ -22,9 +22,9 @@ export default function Navbar() {
     }, [])
 
     return (
-        <nav className="bg-myPrimary text-secondary p-4">
+        <nav className="bg-myPrimary text-secondary p-3">
             <PageWrapper>
-                <div className="container mx-auto  flex items-center justify-between py-2">
+                <div className="container mx-auto  flex items-center justify-between py-1">
                     <div className="text-2xl font-bold">
                         <span className="text-mySecondary-400">Stream</span>Snap
                     </div>
@@ -48,12 +48,12 @@ export default function Navbar() {
                                         }, 200)
                                     }}
                                 >
-                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400">
+                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400 duration-300">
                                         Services
                                         <ChevronDown className={`inline-block ml-1 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
                                     </a>
                                     <ul
-                                        className={`absolute left-0 mt-2 w-48 z-10 rounded-md shadow-lg bg-gray-700  ring-1 ring-black ring-opacity-5 focus:outline-none transform transition-all duration-300 ease-in-out origin-top ${servicesOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
+                                        className={`absolute left-0 mt-2 w-48 z-20 rounded-md shadow-lg bg-gray-700  ring-1 ring-black ring-opacity-5 focus:outline-none transform transition-all duration-300 ease-in-out origin-top ${servicesOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
                                             }`}
                                         onMouseEnter={() => {
                                             if (servicesTimer.current) clearTimeout(servicesTimer.current)
@@ -65,13 +65,13 @@ export default function Navbar() {
                                             }, 200)
                                         }}
                                     >
-                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400">Web Development</a></li>
-                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400">Mobile App Development</a></li>
-                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400">UI/UX Design</a></li>
+                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">Web Development</a></li>
+                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">Mobile App Development</a></li>
+                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">UI/UX Design</a></li>
                                     </ul>
                                 </li>
                                 <li className="relative">
-                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400">Projects</a>
+                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400 duration-300">Projects</a>
                                 </li>
                                 <li
                                     className="relative group"
@@ -85,12 +85,12 @@ export default function Navbar() {
                                         }, 200)
                                     }}
                                 >
-                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400">
+                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400 duration-300">
                                         Pages
                                         <ChevronDown className={`inline-block ml-1 transition-transform duration-200 ${pagesOpen ? 'rotate-180' : ''}`} />
                                     </a>
                                     <ul
-                                        className={`absolute left-0 mt-2 w-48 z-10 rounded-md shadow-lg bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none transform transition-all duration-200 ease-in-out origin-top ${pagesOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
+                                        className={`absolute left-0 mt-2 w-48 z-20 rounded-md shadow-lg bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none transform transition-all duration-200 ease-in-out origin-top ${pagesOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
                                             }`}
                                         onMouseEnter={() => {
                                             if (pagesTimer.current) clearTimeout(pagesTimer.current)
@@ -102,13 +102,13 @@ export default function Navbar() {
                                             }, 200)
                                         }}
                                     >
-                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400">About Us</a></li>
-                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400">Team</a></li>
-                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400">Testimonials</a></li>
+                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">About Us</a></li>
+                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">Team</a></li>
+                                        <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">Testimonials</a></li>
                                     </ul>
                                 </li>
                                 <li className="relative">
-                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400">Blog</a>
+                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400 duration-300">Blog</a>
                                 </li>
                             </ul>
                         </div>
@@ -124,7 +124,7 @@ export default function Navbar() {
                     </button>
 
                     {/*login Button (Desktop) */}                    
-                        <a href="#" className="hidden md:inline-block px-4 py-2 border border-teal-500 rounded-full hover:bg-mySecondary-400 hover:text-black transition" >
+                        <a href="#" className="hidden md:inline-block px-4 py-2 border border-teal-500 rounded-full hover:bg-mySecondary-400 hover:text-black duration-300 transition" >
                             Login
                         </a>
                     
