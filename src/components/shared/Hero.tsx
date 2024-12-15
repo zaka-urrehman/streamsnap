@@ -15,7 +15,7 @@ export default function Hero() {
                     <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0 ">
                         <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-center lg:text-left max-w-3xl mx-auto lg:mx-0 leading-tight mb-6">
                             AI-Powered Instagram Automation
-                            <span className="block text-cyan-400">Smarter Growth, Seamless Engagement!</span>
+                            <span className="block text-mySecondary-400">Smarter Growth, Seamless Engagement!</span>
                         </h1>
 
                         <p className=" text-gray-400 text-center lg:text-left mb-8">
@@ -26,7 +26,7 @@ export default function Hero() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                            <button className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-semibold rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
+                            <button className="px-8 py-3 bg-mySecondary-400 hover:bg-mySecondary-600 text-black font-semibold rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
                                 Get Started
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </button>
