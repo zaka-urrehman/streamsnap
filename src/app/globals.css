@@ -59,39 +59,40 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: 0 0% 0%; /* Pure black background */
+    --foreground: 0 0% 100%; /* Pure white text */
+    --card: 0 0% 10%; /* Slightly lighter black for card backgrounds */
+    --card-foreground: 0 0% 100%; /* White text for cards */
+    --popover: 0 0% 10%; /* Slightly lighter black for popovers */
+    --popover-foreground: 0 0% 100%; /* White text for popovers */
+    --primary: 0 0% 100%; /* White for primary elements like buttons */
+    --primary-foreground: 0 0% 0%; /* Black text on white primary elements */
+    --secondary: 0 0% 20%; /* Dark gray for secondary elements */
+    --secondary-foreground: 0 0% 100%; /* White text for secondary elements */
+    --muted: 0 0% 20%; /* Dark gray for muted elements */
+    --muted-foreground: 0 0% 80%; /* Light gray text for muted elements */
+    --accent: 0 0% 20%; /* Accent color as dark gray */
+    --accent-foreground: 0 0% 100%; /* White text for accent elements */
+    --destructive: 0 62.8% 30.6%; /* Red for destructive actions */
+    --destructive-foreground: 0 0% 100%; /* White text for destructive actions */
+    --border: 0 0% 20%; /* Dark gray for borders */
+    --input: 0 0% 20%; /* Dark gray for input backgrounds */
+    --ring: 0 0% 80%; /* Light gray for focus rings */
+    --chart-1: 220 70% 50%; /* Blue for charts */
+    --chart-2: 160 60% 45%; /* Green for charts */
+    --chart-3: 30 80% 55%; /* Yellow for charts */
+    --chart-4: 280 65% 60%; /* Purple for charts */
+    --chart-5: 340 75% 55%; /* Pink for charts */
+    --sidebar-background: 0 0% 5%; /* Very dark gray for sidebar background */
+    --sidebar-foreground: 0 0% 95%; /* White for sidebar text */
+    --sidebar-primary: 0 0% 100%; /* White for primary sidebar elements */
+    --sidebar-primary-foreground: 0 0% 0%; /* Black for text in primary sidebar elements */
+    --sidebar-accent: 0 0% 10%; /* Dark gray for sidebar accents */
+    --sidebar-accent-foreground: 0 0% 95%; /* White text for sidebar accents */
+    --sidebar-border: 0 0% 20%; /* Dark gray for sidebar borders */
+    --sidebar-ring: 217.2 91.2% 59.8%; /* Blue for sidebar focus rings */
   }
+  
 }
 
 @layer base {
