@@ -43,7 +43,7 @@ export function Pricing() {
   ]
 
   return (
-    <section className="w-full py-20 bg-black">
+    <section className="w-full py-20 ">
       <PageWrapper>
         <div className="container px-4 md:px-6">
           <div className="text-center mb-12">
@@ -58,25 +58,25 @@ export function Pricing() {
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className="relative flex flex-col justify-between p-6 rounded-lg border border-gray-600 hover:border-mySecondary-500 duration-300 bg-gray-600 bg-opacity-40 backdrop:blur-2xl hover:bg-gray-600/50 transition-all"
+                className="relative flex flex-col justify-between p-6 rounded-lg border-2 border-gray-400 hover:border-mySecondary-500 duration-300 bg-gray-500 bg-opacity-20 backdrop:filter backdrop-blur-xl hover:bg-gray-100/50 dark:hover:bg-gray-600/50 transition-all"
               >
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold text-white">{plan.name}</h3>
+                  <h3 className="text-xl font-bold ">{plan.name}</h3>
                   <div className="mt-2">
-                    <span className="text-4xl font-bold text-[#00E5FF]">{plan.price}</span>
-                    {plan.price !== "Custom" && <span className="text-gray-400">/month</span>}
+                    <span className="text-4xl font-bold text-mySecondary-400">{plan.price}</span>
+                    {plan.price !== "Custom" && <span className="text-gray-800 dark:text-gray-400">/month</span>}
                   </div>
-                  <p className="mt-2 text-gray-400">{plan.description}</p>
+                  <p className="mt-2  dark:text-gray-400">{plan.description}</p>
                 </div>
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-gray-300">
+                    <li key={featureIndex} className="flex items-center text-gray-600 dark:text-gray-300">
                       <Check className="w-5 h-5 mr-2 text-[#00E5FF]" />
                       {feature}
                     </li>
                   ))}
                 </ul>
-                <button className="w-full px-4 py-2 rounded-lg bg-[#00E5FF] hover:bg-[#00E5FF]/90 text-black font-semibold transition-colors">
+                <button className="w-full px-4 py-2 rounded-lg bg-mySecondary-400 hover:bg-mySecondary-400/90 hover:text-white text-black font-semibold transition-colors">
                   Get Started
                 </button>
               </div>

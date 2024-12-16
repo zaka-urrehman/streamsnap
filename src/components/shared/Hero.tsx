@@ -5,11 +5,11 @@ import H1 from './texts/H1'
 
 export default function Hero() {
     return (
-        <section className=" overflow-hidden bg-black text-white py-20  relative">
-            <div className='absolute inset-0 w-1/2 h-10 mx-auto bg-mySecondary-500 opacity-70 rounded-b-full blur-2xl z-0' />
-            <div className='absolute inset-0 w-1/2 h-64 mx-auto bg-gradient-to-t from-myPrimary to-mySecondary-500 opacity-50 rounded-b-full blur-3xl backdrop:blur-lg z-0' />
+        <section className=" overflow-hidden  py-20  relative">
+            <div className='absolute inset-0 w-1/2 h-10 mx-auto bg-mySecondary-400 opacity-70 rounded-b-full blur-2xl z-0' />
+            <div className='absolute inset-0 w-1/2 h-64 mx-auto bg-gradient-to-t from-myPrimary/50 to-mySecondary-400 opacity-50 rounded-b-full blur-3xl backdrop:blur-lg z-0' />
             {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div> */}
-            <div className='absolute inset-0 w-[30%] h-36 mx-auto top-36 bg-mySecondary-500 opacity-30 rounded-b-full blur-3xl' />
+            <div className='absolute inset-0 w-[30%] h-36 mx-auto top-36 bg-mySecondary-400 opacity-30 rounded-b-full blur-3xl' />
 
             <PageWrapper>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center bg-transparent z-10 relative">
@@ -27,11 +27,11 @@ export default function Hero() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                            <button className="px-8 py-3 bg-mySecondary-400 hover:bg-mySecondary-600 text-black font-semibold rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
+                            <button className="px-8 py-3 bg-mySecondary-400 hover:bg-mySecondary-500 hover:text-white dark:hover:text-black font-semibold rounded-full transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center">
                                 Get Started
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </button>
-                            <button className="px-8 py-3 bg-transparent hover:bg-white/10 border border-mySecondary-500 text-white font-semibold rounded-full transition duration-300 ease-in-out">
+                            <button className="px-8 py-3 bg-transparent hover:bg-gray-100 dark:hover:bg-white/10 border border-mySecondary-500  font-semibold rounded-full transition duration-300 ease-in-out">
                                 Learn More
                             </button>
                         </div>

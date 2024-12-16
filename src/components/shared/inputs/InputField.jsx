@@ -4,7 +4,7 @@ const InputField = ({ label, type = 'text', id, placeholder = '', value , onChan
   return (
     <div>
       {label && (
-        <label htmlFor={id} className="block text-sm font-medium text-gray-300 mb-2">
+        <label htmlFor={id} className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
           {label}
         </label>
       )}
@@ -14,7 +14,7 @@ const InputField = ({ label, type = 'text', id, placeholder = '', value , onChan
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-mySecondary-400 text-white"
+        className="w-full px-4 py-2 border bg-gray-100/50  dark:bg-gray-800 border-gray-500 dark:border-gray-700 placeholder:text-gray-500 dark:placeholder:text-gray-500 rounded-lg focus:outline-none focus:border-none focus:bg-white focus:ring-2 focus:ring-mySecondary-400"
         placeholder={placeholder}
       />
     </div>

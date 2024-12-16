@@ -34,7 +34,7 @@ export function Features() {
     ]
 
     return (
-        <section className="w-full py-20 bg-myPrimary">
+        <section className="w-full py-20 ">
             <PageWrapper>
                 <div className="container px-4 md:px-6 mx-auto">
                     <div className="text-center mb-12">
@@ -55,13 +55,13 @@ export function Features() {
                         {features.map((feature, index) => (
                             <div
                                 key={index}
-                                className=" relative max-w-72 h-56 group p-6 rounded-lg border border-gray-800 bg-gray-900/50 hover:bg-gray-900/75 transition-all"
+                                className=" relative max-w-72 h-56 group p-6 rounded-lg border border-gray-800 bg-gray-400/30 dark:bg-gray-900/50 hover:bg-gray-400/50 dark:hover:bg-gray-900/75 transition-all"
                             >
                                 <div className="mb-4">
                                     <CheckCircle2 className="w-8 h-8 text-mySecondary-400" />
                                 </div>
-                                <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                                <p className="text-gray-400">{feature.description}</p>
+                                <h3 className="text-xl font-bold  mb-2">{feature.title}</h3>
+                                <p className=" text-gray-600 dark:text-gray-400">{feature.description}</p>
                             </div>
                         ))}
                     </div>

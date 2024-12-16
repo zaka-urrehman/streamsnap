@@ -22,7 +22,7 @@ export default function Contact() {
     };
 
     return (
-        <section className="w-full py-20 bg-black">
+        <section className="w-full py-20 ">
             <PageWrapper>
                 <div className="container px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -36,15 +36,15 @@ export default function Contact() {
                             <div className="space-y-4 mt-4">
                                 <div>
                                     <h3 className="text-lg font-semibold text-mySecondary-400 mb-2">Email</h3>
-                                    <p className="text-gray-300">support@streamsnap.com</p>
+                                    <p className=" text-gray-500 dark:text-gray-300">support@streamsnap.com</p>
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-semibold text-mySecondary-400 mb-2">Office</h3>
-                                    <p className="text-gray-300">123 Social Media Street<br />Digital City, DC 12345</p>
+                                    <p className="text-gray-500 dark:text-gray-300">123 Social Media Street<br />Digital City, DC 12345</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-6">
+                        <div className="rounded-lg border bg-gray-300/50 backdrop-filter backdrop-blur-lg  shadow-md dark:border-gray-800 dark:bg-gray-900/50 p-6">
                             <form className="space-y-6">
                                 {/* <div>
                                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -109,7 +109,7 @@ export default function Contact() {
 
                                 <button
                                     type="submit"
-                                    className="w-full px-8 py-3 rounded-lg bg-mySecondary-500 hover:bg-mySecondary-500/90 text-black font-semibold transition-colors"
+                                    className="w-full px-8 py-3 rounded-lg bg-mySecondary-400 hover:bg-mySecondary-500/90 text-black hover:text-white font-semibold transition-colors"
                                 >
                                     Send Message
                                 </button>

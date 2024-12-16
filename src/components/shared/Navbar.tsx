@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { ChevronDown, Menu, X } from 'lucide-react'
 import PageWrapper from "./wrappers/PageWrapper"
+import { ThemeToggle } from "./buttons/ToggleTheme"
 
 export default function Navbar() {
     const [servicesOpen, setServicesOpen] = useState(false)
@@ -22,7 +23,7 @@ export default function Navbar() {
     }, [])
 
     return (
-        <nav className="bg-myPrimary text-secondary p-3">
+        <nav className=" p-3 border-b border-b-gray-300 shadow-mySecondary-100 dark:shadow-mySecondary-500 shadow-md dark:border-b-gray-800">
             <PageWrapper>
                 <div className="container mx-auto  flex items-center justify-between py-1">
                     <div className="text-2xl font-bold">
@@ -31,10 +32,10 @@ export default function Navbar() {
 
                     {/* Desktop Menu */}
                     <div className="hidden md:block">
-                        <div className="bg-gray-800 rounded-full px-2 py-1">
+                        <div className="bg-gray-200 dark:bg-gray-800 rounded-full px-2 py-1">
                             <ul className="flex items-center space-x-2">
                                 <li className="relative">
-                                    <a href="#" className="px-4 py-2 rounded-full bg-gray-700 text-mySecondary-400 inline-block">Home</a>
+                                    <a href="#" className="px-4 py-2 rounded-full bg-gray-300 dark:bg-gray-700  darkbg-gray-700 text-mySecondary-400  inline-block">Home</a>
                                 </li>
                                 <li
                                     className="relative group"
@@ -53,7 +54,7 @@ export default function Navbar() {
                                         <ChevronDown className={`inline-block ml-1 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
                                     </a>
                                     <ul
-                                        className={`absolute left-0 mt-2 w-48 z-20 rounded-md shadow-lg bg-gray-700  ring-1 ring-black ring-opacity-5 focus:outline-none transform transition-all duration-300 ease-in-out origin-top ${servicesOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
+                                        className={`absolute left-0 mt-2 w-48 z-20 rounded-md shadow-lg bg-gray-200 dark:bg-gray-700  ring-1 ring-black ring-opacity-5 focus:outline-none transform transition-all duration-300 ease-in-out origin-top ${servicesOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
                                             }`}
                                         onMouseEnter={() => {
                                             if (servicesTimer.current) clearTimeout(servicesTimer.current)
@@ -90,7 +91,7 @@ export default function Navbar() {
                                         <ChevronDown className={`inline-block ml-1 transition-transform duration-200 ${pagesOpen ? 'rotate-180' : ''}`} />
                                     </a>
                                     <ul
-                                        className={`absolute left-0 mt-2 w-48 z-20 rounded-md shadow-lg bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none transform transition-all duration-200 ease-in-out origin-top ${pagesOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
+                                        className={`absolute left-0 mt-2 w-48 z-20 rounded-md shadow-lg bg-gray-200 dark:bg-gray-700 ring-1 ring-black ring-opacity-5 focus:outline-none transform transition-all duration-200 ease-in-out origin-top ${pagesOpen ? 'opacity-100 scale-100 pointer-events-auto' : 'opacity-0 scale-95 pointer-events-none'
                                             }`}
                                         onMouseEnter={() => {
                                             if (pagesTimer.current) clearTimeout(pagesTimer.current)
@@ -116,23 +117,26 @@ export default function Navbar() {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-white bg-gray-700 hover:bg-white hover:text-black p-2 rounded-full transition-colors duration-300 "
+                        className="md:hidden bg-gray-200 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-white  hover:text-white dark:hover:text-black p-2 rounded-full transition-colors duration-300 "
                         onClick={toggleMobileMenu}
                         aria-label="Toggle mobile menu"
                     >
                         <Menu size={24} />
                     </button>
 
-                    {/*login Button (Desktop) */}                    
-                        <a href="#" className="hidden md:inline-block px-4 py-2 border border-teal-500 rounded-full hover:bg-mySecondary-400 hover:text-black duration-300 transition" >
+                    {/*login Button (Desktop) */}
+                    <div className="hidden md:flex justify-between items-center gap-x-2">
+                        <ThemeToggle />
+                        <a href="#" className=" px-4 py-2 border border-mySecondary-400 rounded-full hover:bg-mySecondary-400 hover:text-white dark:hover:text-black duration-300 transition" >
                             Login
                         </a>
-                    
+                    </div>
+
                 </div>
 
                 {/* Mobile Menu */}
                 <div
-                    className={`fixed inset-y-0 left-0 z-50 w-4/5 py-3.5 max-w-sm bg-black transform transition-transform duration-700 ease-in-out md:hidden ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+                    className={`fixed inset-y-0 left-0 z-50 w-4/5 py-3.5 max-w-sm bg-white dark:bg-black transform transition-transform duration-700 ease-in-out md:hidden ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
                         }`}
                 >
                     <div
@@ -142,13 +146,13 @@ export default function Navbar() {
                         <div className="flex justify-end p-4">
                             <button
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-white"
+                                className=""
                                 aria-label="Close mobile menu"
                             >
                                 <X size={24} />
                             </button>
                         </div>
-                        <ul className="bg-gray-800 p-4 space-y-4">
+                        <ul className="dark:bg-gray-800 p-4 space-y-4">
                             <li><a href="#" className="block px-4 py-2 text-tirtiary">Home</a></li>
                             <li>
                                 <button
@@ -160,7 +164,7 @@ export default function Navbar() {
                                     <ChevronDown className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
                                 </button>
                                 {servicesOpen && (
-                                    <ul className="mt-2 ml-4 space-y-2 bg-gray-700 rounded-lg">
+                                    <ul className="mt-2 ml-4 space-y-2 bg-gray-200 dark:bg-gray-700 rounded-lg">
                                         <li><a href="#" className="block px-4 py-2 text-sm">Web Development</a></li>
                                         <li><a href="#" className="block px-4 py-2 text-sm">Mobile App Development</a></li>
                                         <li><a href="#" className="block px-4 py-2 text-sm">UI/UX Design</a></li>
@@ -178,7 +182,7 @@ export default function Navbar() {
                                     <ChevronDown className={`transition-transform duration-200 ${pagesOpen ? 'rotate-180' : ''}`} />
                                 </button>
                                 {pagesOpen && (
-                                    <ul className="mt-2 ml-4 space-y-2 bg-gray-700 rounded-lg">
+                                    <ul className="mt-2 ml-4 space-y-2 bg-gray-200 dark:bg-gray-700 rounded-lg">
                                         <li><a href="#" className="block px-4 py-2 text-sm">About Us</a></li>
                                         <li><a href="#" className="block px-4 py-2 text-sm">Team</a></li>
                                         <li><a href="#" className="block px-4 py-2 text-sm">Testimonials</a></li>
@@ -189,7 +193,7 @@ export default function Navbar() {
                             <li>
                                 <a
                                     href="#"
-                                    className="block px-4 py-2 border border-tirtiary rounded-full text-center hover:bg-tirtiary hover:text-primary transition"
+                                    className="block px-4 py-2 border border-mySecondary-500 rounded-full text-center hover:bg-mySecondary-500 hover:text-white dark:hover:text-black transition"
                                 >
                                     Contact Us
                                 </a>
