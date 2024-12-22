@@ -22,7 +22,7 @@ model User {
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt // Automatically updated on modification
   subscription Subscription?
-  integrations Integrations[]
+  integrations Integration[]
   automations  Automation[]
 
   // Indexes
@@ -60,7 +60,7 @@ model Automation {
   trigger   Trigger[]
   listener  Listener?
   posts     Post[]
-  dms       Dms[]
+  dms       DM[]
   User      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String?   @db.Uuid
   keywords  Keyword[]
