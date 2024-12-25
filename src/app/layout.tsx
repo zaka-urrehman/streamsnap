@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/shared/Navbar";
 import { ClerkProvider } from "@clerk/nextjs"
 import { ThemeProvider } from "@/providers/theme-provider";
 import { Toaster } from "sonner"
@@ -27,9 +26,7 @@ export default function RootLayout({
             defaultTheme="dark"
             enableSystem
             disableTransitionOnChange
-          >
-
-            <Navbar />
+          >           
             {children}
             <Toaster />
           </ThemeProvider>
