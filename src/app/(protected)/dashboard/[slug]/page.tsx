@@ -4,7 +4,7 @@ const Page = () => {
     return (
         <div>
             <p>
-                {/* this is a dynamic page */}
+                this is a dynamic page
             </p>
         </div>
     )
