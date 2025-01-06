@@ -14,7 +14,7 @@ interface Props {
 const Sidebar = ({ slug }: Props) => {
 	const { page } = UsePath()
 	return (
-		<div className="w-64 m-3 border radial fixed left-0 bottom-0 top-0 hidden lg:inline-block border-mySecondary-400 bg-gradient-to-br from-white dark:from-black to-mySecondary-500/30 rounded-3xl overflow-hidden">
+		<div className="w-72 h-[96vh] m-3 border radial  hidden lg:inline-block border-mySecondary-400 bg-gradient-to-br from-white dark:from-black to-mySecondary-500/30 rounded-3xl overflow-hidden">
 			<div className="flex flex-col gap-y-5 w-full h-full p-3 dark:bg-myPrimary bg-opacity-80 bg-clip-padding backdrop-filter backdrop--blur__safari backdrop-blur-3xl">
 
 				<div className="text-xl font-bold flex justify-center items-center">
