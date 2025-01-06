@@ -34,7 +34,7 @@ const Infobar = ({ slug }: Props) => {
                 </div>
             </div>
 
-            <div>
+            <div className='max-lg:px-4'>
                 <MainBreadCrumb
                     page={page === slug ? 'Home' : page}
                     slug={slug}
