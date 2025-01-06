@@ -31,7 +31,7 @@ const SmallScreenSideBar = ({ slug }: Props) => {
                 <div className="container mx-auto  flex items-center justify-end py-1">
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden bg-gray-200 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-white  hover:text-white dark:hover:text-black p-2 rounded-full transition-colors duration-300 "
+                        className="lg:hidden bg-gray-200 dark:bg-gray-700 hover:bg-gray-800 dark:hover:bg-white  hover:text-white dark:hover:text-black p-2 rounded-full transition-colors duration-300 "
                         onClick={toggleMobileMenu}
                         aria-label="Toggle mobile menu"
                     >
