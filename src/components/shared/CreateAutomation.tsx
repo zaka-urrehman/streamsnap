@@ -28,10 +28,10 @@ const CreateAutomation = (props: Props) => {
     //   }
     >
       <Loader state={false}>
-        <div className='lg:hidden'>
+        <div className='sm:hidden'>
           <AutomationDuoToneCyan/>
         </div>
-        <p className="lg:inline hidden">Create an Automation</p>
+        <p className="sm:inline hidden">Create an Automation</p>
       </Loader>
     </Button>
   )
