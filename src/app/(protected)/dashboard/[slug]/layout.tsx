@@ -1,6 +1,8 @@
 import Infobar from '@/components/shared/Infobar'
 import Sidebar from '@/components/shared/Sidebar'
 import SmallScreenSideBar from '@/components/shared/SmallScreenSideBar'
+import { prefetchUserAutomations, prefetchUserProfile } from '@/react-query/prefetch'
+import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query'
 import React from 'react'
 
 interface Props {
@@ -8,19 +10,24 @@ interface Props {
     params: { slug: string }
 }
 
-const Layout = ({ children, params }: Props) => {
+const Layout = async ({ children, params }: Props) => {
+
+    const queryClient = new QueryClient()
+    await prefetchUserProfile(queryClient)
+    await prefetchUserAutomations(queryClient)
+
     return (
-        <div className='flex '>
-            <Sidebar slug={params.slug} />
-            <div className='flex flex-col w-full '>
-                <Infobar slug={params.slug} />
-                {children}
+        <HydrationBoundary state={dehydrate(queryClient)}>
+            <div className='flex '>
+                <Sidebar slug={params.slug} />
+                <div className='flex flex-col w-full '>
+                    <Infobar slug={params.slug} />
+                    {children}
+                </div>
             </div>
-        </div>
+        </HydrationBoundary>
     )
-    {/* <div className='lg:hidden'>
-        <SmallScreenSideBar slug={params.slug} />
-    </div> */}
+
 }
 
 export default Layout
