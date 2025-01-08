@@ -7,7 +7,7 @@ import { refreshToken } from "@/lib/fetch"
 import { updateIntegration } from "../integration/queries"
 
 
-export const onCurrentUser = async () => {
+export const getCurrentUser = async () => {
     const user = await currentUser()
     if (!user) return redirect('/sign-in')
 
@@ -15,7 +15,7 @@ export const onCurrentUser = async () => {
 }
 
 export const onBoardUser = async () => {
-    const user = await onCurrentUser()
+    const user = await getCurrentUser()
     try {
         const found = await findUser(user.id)
 
@@ -67,5 +67,22 @@ export const onBoardUser = async () => {
                 message: "error"
             }
         }
+    }
+}
+
+
+export const getUserInfo = async () => {
+    const user = await getCurrentUser()
+    try {
+        const profile = await findUser(user.id)
+        if (profile) {
+            return {
+                status: 200,
+                data: profile
+            }
+        }
+        return { status: 404, data: { message: "user not found" } }
+    } catch (error) {
+        return { status: 500, data: { message: "error" } }
     }
 }
