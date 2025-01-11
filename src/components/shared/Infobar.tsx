@@ -2,9 +2,9 @@
 import React from 'react'
 import Search from './Search'
 import SmallScreenSideBar from './SmallScreenSideBar'
-import CreateAutomation from './CreateAutomation'
+import CreateAutomation from './buttons/CreateAutomation'
 import { Notifications } from './Notifications'
-import { UsePath } from '@/hooks/use-path'
+import { usePath } from '@/hooks/use-path'
 import MainBreadCrumb from './MainBreadCrumb'
 // import CreateAutomation from ''
 
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Infobar = ({ slug }: Props) => {
-    const { page } = UsePath()
+    const { page } = usePath()
     return (
         <>
             <div className='flex justify-between rounded-lg py-2 px-4 w-full'>

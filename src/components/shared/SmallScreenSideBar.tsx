@@ -7,7 +7,7 @@ import SidebarItems from './SidebarItems'
 import { Separator } from '../ui/separator'
 import UserAuthState from './buttons/UserAuthState'
 import { HelpDuoToneCyan } from '@/icons'
-import { UsePath } from '@/hooks/use-path'
+import { usePath } from '@/hooks/use-path'
 import SubscriptionCard from './SubscriptionCard'
 // import SubscriptionPlan from './SubscriptionPlan'
 // import Sidebar from './Sidebar'
@@ -21,7 +21,7 @@ interface Props {
 
 
 const SmallScreenSideBar = ({ slug }: Props) => {
-    const { page } = UsePath()
+    const { page } = usePath()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen)
 
