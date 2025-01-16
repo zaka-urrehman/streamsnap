@@ -1,4 +1,4 @@
-import { PlaneBlue, SmartAi, TinyInstagram } from '@/icons'
+import {  PlaneCyan, SmartAi, TinyInstagram } from '@/icons'
 import { v4 } from 'uuid'
 
 export type AutomationListenerProps = {
@@ -37,7 +37,7 @@ export const AUTOMATION_LISTENERS: AutomationListenerProps[] = [
     {
         id: v4(),
         label: 'Send the user a message',
-        icon: <PlaneBlue />,
+        icon: <PlaneCyan />,
         description: 'Enter the message that you want to send the user.',
         type: 'MESSAGE',
     },

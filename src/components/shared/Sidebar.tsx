@@ -6,6 +6,7 @@ import { Separator } from '../ui/separator'
 import { HelpDuoToneCyan } from '@/icons/help-duotone-cyan'
 import UserAuthState from "@/components/shared/buttons/UserAuthState"
 import SubscriptionCard from './SubscriptionCard'
+import { ThemeToggle } from './buttons/ToggleTheme'
 // import { ThemeToggle } from './buttons/ToggleTheme'
 interface Props {
 	slug: string
@@ -21,7 +22,7 @@ const Sidebar = ({ slug }: Props) => {
 					<span className="text-mySecondary-400">Stream</span>Snap
 				</div>
 
-				{/* <ThemeToggle/> */}
+				<ThemeToggle/>
 
 				<SidebarItems page={page} slug={slug} />
 

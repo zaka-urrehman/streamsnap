@@ -79,7 +79,7 @@ const ThenAction = ({ id }: Props) => {
                         placeholder="Add a reply for comments (Optional)"
                         className="bg-background-80 outline-none border-none ring-0 focus:ring-0"
                     />
-                    <Button className="bg-gradient-to-br w-full from-[#3352CC] font-medium text-white to-[#1C2D70]">
+                    <Button className=" w-full  font-medium text-white bg-gradient-to-br from-mySecondary-500 to to-blue-800  ">
                         <Loader state={isPending}>Add listener</Loader>
                     </Button>
                 </form>

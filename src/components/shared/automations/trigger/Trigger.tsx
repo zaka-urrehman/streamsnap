@@ -19,13 +19,12 @@ type Props = {
 const Trigger = ({ id }: Props) => {
     const { types, onSetTrigger, onSaveTrigger, isPending } = useTriggers(id)
     const { data }: any = useQueryAutomation(id)
-    console.log("data: ", data)
     const { latestVariable } = useMutationDataState(['user-automation'])
-    console.log("latest variable: ", latestVariable)
+
 
     if (data?.data && data?.data?.trigger?.length > 0) {
         return (
-            <div className="flex flex-col ga-y-6 items-center">
+            <div className="flex flex-col ga-y-6 items-center ">
                 <ActiveTrigger
                     type={data.data.trigger[0].type}
                     keywords={data.data.keywords}
@@ -64,7 +63,7 @@ const Trigger = ({ id }: Props) => {
                             'hover:opacity-80 text-white rounded-xl flex cursor-pointer flex-col p-2 gap-y-2',
                             !types?.find((t: any) => t === trigger.type)
                                 ? 'bg-background-80'
-                                : 'bg-gradient-to-br from-[#3352CC] font-medium to-[#1C2D70]'
+                                : 'font-medium bg-gradient-to-br from-mySecondary-500 to to-blue-800'
                         )}
                     >
                         <div className="flex gap-x-2 items-center">
@@ -78,7 +77,7 @@ const Trigger = ({ id }: Props) => {
                 <Button
                     onClick={onSaveTrigger}
                     disabled={types?.length === 0}
-                    className="bg-gradient-to-br from-[#3352CC] font-medium text-white to-[#1C2D70]"
+                    className=" font-medium  bg-gradient-to-br from-mySecondary-500 to to-blue-800 text-white"
                 >
                     <Loader state={isPending}>Create Trigger</Loader>
                 </Button>

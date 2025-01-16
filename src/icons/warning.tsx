@@ -29,7 +29,7 @@ export const Warning = () => {
                     y2="22"
                     gradientUnits="userSpaceOnUse"
                 >
-                    <stop stop-color="#3352CC" />
+                    <stop stop-color="#22d3ee" />
                     <stop offset="1" stop-color="#1C2D70" />
                 </linearGradient>
             </defs>

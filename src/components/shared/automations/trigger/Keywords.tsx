@@ -4,6 +4,7 @@ import { useMutationDataState } from '@/hooks/use-mutation-data'
 import { useQueryAutomation } from '@/hooks/user-queries'
 import { X } from 'lucide-react'
 import React from 'react'
+import Loader from '../../Loader'
 
 type Props = {
     id: string
@@ -26,15 +27,23 @@ export const Keywords = ({ id }: Props) => {
                         (word: any) =>
                             word.id !== latestVariable.variables.id && (
                                 <div
-                                    className="bg-background-90 flex items-center gap-x-2 capitalize text-text-secondary py-1 px-4 rounded-full"
+                                    className=" bg-gray-600 text-white flex items-center group gap-x-2 capitalize text-text-secondary py-1 px-4 rounded-full"
                                     key={word.id}
                                 >
                                     <p>{word.word}</p>
+                                    <X
+                                        className="cursor-pointer hidden group-hover:block duration-300"
+                                        size={16}
+                                        onClick={() => deleteMutation({id: word?.id})}
+                                    />
                                 </div>
                             )
                     )}
                 {latestVariable && latestVariable.status === 'pending' && (
                     <div className="bg-background-90 flex items-center gap-x-2 capitalize text-text-secondary py-1 px-4 rounded-full">
+                        <Loader state={true}>
+                            <></>
+                        </Loader>
                         {latestVariable.variables.keyword}
                     </div>
                 )}
@@ -44,7 +53,7 @@ export const Keywords = ({ id }: Props) => {
                         width: Math.min(Math.max(keyword.length || 10, 2), 50) + 'ch',
                     }}
                     value={keyword}
-                    className="p-0 bg-transparent ring-0 border-none outline-none"
+                    className="p-0 bg-transparent ring-0 border border-gray-300 px-2 rounded-full min-w-32"
                     onChange={onValueChange}
                     onKeyUp={onKeyPress}
                 />
