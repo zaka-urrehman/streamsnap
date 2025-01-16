@@ -1,8 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-
+import AutomationReducer from './slices/automations'
 
 
 const rootReducer = combineReducers({
+    AutomationReducer
 });
 
 const store = configureStore({
