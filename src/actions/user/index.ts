@@ -14,10 +14,11 @@ export const getCurrentUser = async () => {
     return user
 }
 
+
 export const onBoardUser = async () => {
     const user = await getCurrentUser()
-    try {
-        const found = await findUser(user.id)
+    try {     
+        const found = await findUser(user.id);
 
         if (found) {
             if (found?.integrations?.length! > 0) {
@@ -40,12 +41,13 @@ export const onBoardUser = async () => {
                         console.log("error updating token")
                     }
                 }
-                return {
-                    status: 200,
-                    data: {
-                        firstname: found?.firstname,
-                        lastname: found?.lastname,
-                    }
+
+            }
+            return {
+                status: 200,
+                data: {
+                    firstname: found?.firstname,
+                    lastname: found?.lastname,
                 }
             }
         }
@@ -64,7 +66,7 @@ export const onBoardUser = async () => {
         return {
             status: 500,
             data: {
-                message: "error"
+                message: "An Error Occured"
             }
         }
     }
