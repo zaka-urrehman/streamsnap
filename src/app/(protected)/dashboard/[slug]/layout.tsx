@@ -1,9 +1,7 @@
 import Infobar from '@/components/shared/Infobar'
 import Sidebar from '@/components/shared/Sidebar'
-import SmallScreenSideBar from '@/components/shared/SmallScreenSideBar'
 import { prefetchUserAutomations, prefetchUserProfile } from '@/react-query/prefetch'
 import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query'
-import React from 'react'
 
 interface Props {
     children: React.ReactNode
@@ -20,7 +18,7 @@ const Layout = async ({ children, params }: Props) => {
         <HydrationBoundary state={dehydrate(queryClient)}>
             <div className='flex '>
                 <Sidebar slug={params.slug} />
-                <div className='flex flex-col w-full '>
+                <div className='flex flex-col w-full max-h-screen overflow-y-scroll '>
                     <Infobar slug={params.slug} />
                     {children}
                 </div>
