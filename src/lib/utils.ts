@@ -29,6 +29,14 @@ export const getMonth = (month: number) => {
     return months[month - 1]
 }
 
+/**
+ * Adds an element to the array if it does not already exist, 
+ * otherwise removes the element from the array.
+ *
+ * @param arr - The array to check for duplicates.
+ * @param el - The element to add or remove.
+ * @returns The updated array.
+ */
 export const duplicateValidation = (arr: string[], el: string) => {
     if (!arr.find((t) => t === el)) {
         arr.push(el)
