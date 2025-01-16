@@ -6,11 +6,11 @@ interface Props {
     children: React.ReactNode
 }
 
-const client = new QueryClient()
+const queryClient = new QueryClient()
 
 const ReactQueryProvider = ({ children }: Props) => {
     return (
-        <QueryClientProvider client={client}>
+        <QueryClientProvider client={queryClient}>
             {children}
         </QueryClientProvider>
     )
