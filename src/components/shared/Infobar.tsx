@@ -5,7 +5,7 @@ import SmallScreenSideBar from './SmallScreenSideBar'
 import CreateAutomation from './buttons/CreateAutomation'
 import { Notifications } from './Notifications'
 import { usePath } from '@/hooks/use-path'
-import MainBreadCrumb from './MainBreadCrumb'
+import MainBreadCrumb from './breadCrumbs/MainBreadCrumb'
 // import CreateAutomation from ''
 
 interface Props {

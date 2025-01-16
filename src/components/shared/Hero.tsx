@@ -21,7 +21,7 @@ export default function Hero() {
 
                         <p className=" text-gray-400 text-center lg:text-left mb-8">
                             Our platform simplifies your Instagram management by automating responses, optimizing your content
-                            strategy, and enhancing audience engagement. Whether you're building a personal
+                            strategy, and enhancing audience engagement. Whether you are building a personal
                             brand or growing your business, achieve smarter growth and create
                             meaningful connections effortlessly with our intelligent tools.
                         </p>
