@@ -12,24 +12,28 @@ import GradientButton from './buttons/GradientButton'
 
 const AutomationList = () => {
 
-    const { data } = useQueryAutomations()
+    const { data } = useQueryAutomations()    
     const { latestVariable } = useMutationDataState(['create-automation'])
-    console.log("AutomationList->LatestVariable: ", latestVariable)
 
     const { pathname } = usePath()
 
     //  Computes the optimistic UI data based on the latest variable and existing data.  
     const optimisticUiData = useMemo(() => {
         if ((latestVariable && latestVariable?.variables && data)) {
-            const mergedData = [latestVariable.variables, ...data.data]
-            return { data: mergedData }
+            // Only add optimistic data if it's not already in fetched data
+            const existingIds = new Set(data.data.map(item => item.id))
+
+            if (!existingIds.has(latestVariable.variables.id)) {
+                const mergedData = [latestVariable.variables, ...data.data]
+                return { data: mergedData }
+            }
         }
         return data || { data: [] }
     }, [latestVariable, data])
 
 
     //   Renders a message and a button to create a new automation if no data is available.
-    if (data?.status !== 200 || data.data.length <= 0) {
+    if ((data?.status !== 200 || data.data.length <= 0) && optimisticUiData.data.length<=0) {
         return (
             <div className="h-[70vh] flex justify-center items-center flex-col gap-y-3">
                 <h3 className="text-lg text-gray-400">No Automations </h3>

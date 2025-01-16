@@ -1,4 +1,3 @@
-// import AutomationList from '@/components/shared/AutomationList'
 import AutomationList from '@/components/shared/AutomationList'
 import CreateAutomation from '@/components/shared/buttons/CreateAutomation'
 import { Check } from 'lucide-react'

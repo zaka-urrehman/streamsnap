@@ -29,9 +29,8 @@ export const useMutationData = (
         },
     })
 
-    return { isPending, mutate }
+    return { mutate, isPending }
 }
-
 // tracks the state of a mutation and returns the latest variable (used for optimistic updates)
 export const useMutationDataState = (mutationKey: MutationKey) => {
     const data = useMutationState({
@@ -42,7 +41,7 @@ export const useMutationDataState = (mutationKey: MutationKey) => {
                 status: mutation.state.status,
             }
         },
-    })
+    })    
 
     const latestVariable = data[data.length - 1]
     return { latestVariable }
