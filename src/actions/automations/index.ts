@@ -4,8 +4,7 @@ import { findUser } from "../user/queries"
 import { addKeyWord, addListener, addPost, addTrigger, createAutomation, deleteKeywordQuery, findAutomation, getAutomations, updateAutomation } from "./queries"
 
 
-export const getAllAutomations = async () => {
-    console.log("get all automation action called")
+export const getAllAutomations = async () => {  
     const user = await getCurrentUser()
 
     try {
@@ -21,19 +20,17 @@ export const getAllAutomations = async () => {
 
 
 export const createAutomations = async (id?: string) => {
-    console.log("create automation action called")
+
     const user = await getCurrentUser()
 
     try {
         const create = await createAutomation(user.id, id)
         if (create) {
-            console.log("automation created successfully")
             return { status: 200, data: 'Automation created', res: create }
         }
         return { status: 404, data: 'Oops! something went wrong' }
 
-    } catch (error) {
-        console.log("failed - inside catch block")
+    } catch (error) {       
         return { status: 500, data: 'Internal server error' }
     }
 }
@@ -42,11 +39,10 @@ export const createAutomations = async (id?: string) => {
 
 export const getAutomationInfo = async (id: string) => {
     const user = await getCurrentUser()
-    console.log("here")
+   
     try {
         const automation = await findAutomation(id)
         if (automation) {
-            console.log("found automation", automation)
             return { status: 200, data: automation }
         }
         return { status: 404, data: 'Automation not found' }
