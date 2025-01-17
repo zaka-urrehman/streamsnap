@@ -16,7 +16,7 @@ const PaymentCard = ({ current, label, landing }: Props) => {
             className={cn(
                 label !== current
                     ? 'bg-in-active'
-                    : 'bg-gradient-to-r from-mySecondary-950 to-mySecondary-600',
+                    : 'bg-gradient-to-br from-white to-mySecondary-500/30 dark:from-mySecondary-950 dark:to-mySecondary-600',
                 'p-[2px] rounded-xl overflow-hidden border border-gray-400 max-w-96'
             )}
         >
@@ -74,7 +74,7 @@ const PaymentCard = ({ current, label, landing }: Props) => {
                             'rounded-full mt-5',
                             label === 'PRO'
                                 ? 'bg-gradient-to-r from-mySecondary-900 to-mySecondary-500'
-                                : ' text-white hover:text-background-80'
+                                : 'text-gray-800 dark:text-white hover:text-background-80'
                         )}
                     >
                         {label === current
@@ -86,8 +86,8 @@ const PaymentCard = ({ current, label, landing }: Props) => {
                 ) : (
                     <Button
                         className={cn(
-                            'rounded-full mt-5 border border-gray-400 bg-transparent hover:bg-mySecondary-400 text-white ',
-                            label === current && ' bg-green-500'
+                            'rounded-full mt-5 border border-gray-400 bg-transparent hover:bg-mySecondary-400 text-gray-800 dark:text-white ',
+                            label === current && ' bg-green-500 text-white'
                         )}
                         disabled={label === current}
                     >
