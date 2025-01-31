@@ -16,6 +16,7 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
     const webhookPayload = await req.json()
+    console.log(webhookPayload)
     let matcher
 
     try {
