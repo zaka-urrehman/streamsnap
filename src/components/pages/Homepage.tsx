@@ -1,6 +1,7 @@
 
 import Contact from "../shared/Contact";
 import { Features } from "../shared/Features";
+import Footer from "../shared/Footer";
 import Hero from "../shared/Hero";
 import Navbar from "../shared/Navbar";
 import { Pricing } from "../shared/Pricing";
@@ -15,6 +16,7 @@ export default function Homepage() {
             <Tagline />
             <Pricing />
             <Contact />
+            <Footer/>
         </div>
     )
 }
