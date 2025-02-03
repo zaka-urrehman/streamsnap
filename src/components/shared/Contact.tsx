@@ -22,7 +22,7 @@ export default function Contact() {
     };
 
     return (
-        <section className="w-full py-20 ">
+        <section id="contact" className="w-full py-20 ">
             <PageWrapper>
                 <div className="container px-4 md:px-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

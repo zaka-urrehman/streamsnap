@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import { ChevronDown, Menu, X } from 'lucide-react'
 import PageWrapper from "./wrappers/PageWrapper"
 import { ThemeToggle } from "./buttons/ToggleTheme"
+import Link from "next/link"
 
 export default function Navbar() {
     const [servicesOpen, setServicesOpen] = useState(false)
@@ -37,7 +38,7 @@ export default function Navbar() {
                                 <li className="relative">
                                     <a href="#" className="px-4 py-2 rounded-full bg-gray-300 dark:bg-gray-700  darkbg-gray-700 text-mySecondary-400  inline-block">Home</a>
                                 </li>
-                                <li
+                                {/* <li
                                     className="relative group"
                                     onMouseEnter={() => {
                                         if (servicesTimer.current) clearTimeout(servicesTimer.current)
@@ -70,11 +71,11 @@ export default function Navbar() {
                                         <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">Mobile App Development</a></li>
                                         <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">UI/UX Design</a></li>
                                     </ul>
-                                </li>
+                                </li> */}
                                 <li className="relative">
-                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400 duration-300">Projects</a>
+                                    <Link href="/privacyPolicy" className="px-4 py-2 inline-block hover:text-mySecondary-400 duration-300">Privacy Policy</Link>
                                 </li>
-                                <li
+                                {/* <li
                                     className="relative group"
                                     onMouseEnter={() => {
                                         if (pagesTimer.current) clearTimeout(pagesTimer.current)
@@ -107,9 +108,9 @@ export default function Navbar() {
                                         <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">Team</a></li>
                                         <li><a href="#" className="block px-4 py-2 text-sm hover:text-mySecondary-400 duration-300">Testimonials</a></li>
                                     </ul>
-                                </li>
+                                </li> */}
                                 <li className="relative">
-                                    <a href="#" className="px-4 py-2 inline-block hover:text-mySecondary-400 duration-300">Blog</a>
+                                    <Link href="/#contact" className="px-4 py-2 inline-block hover:text-mySecondary-400 duration-300">Contact</Link>
                                 </li>
                             </ul>
                         </div>
@@ -127,7 +128,7 @@ export default function Navbar() {
                     {/*login Button (Desktop) */}
                     <div className="hidden md:flex justify-between items-center gap-x-2">
                         <ThemeToggle />
-                        <a href="#" className=" px-4 py-2 border border-mySecondary-400 rounded-full hover:bg-mySecondary-400 hover:text-white dark:hover:text-black duration-300 transition" >
+                        <a href="/dashboard" className=" px-4 py-2 border border-mySecondary-400 rounded-full hover:bg-mySecondary-400 hover:text-white dark:hover:text-black duration-300 transition" >
                             Login
                         </a>
                     </div>
@@ -153,8 +154,8 @@ export default function Navbar() {
                             </button>
                         </div>
                         <ul className="dark:bg-gray-800 p-4 space-y-4">
-                            <li><a href="#" className="block px-4 py-2 text-tirtiary">Home</a></li>
-                            <li>
+                            <li><a href="/" className="block px-4 py-2 text-tirtiary">Home</a></li>
+                            {/* <li>
                                 <button
                                     onClick={() => setServicesOpen(!servicesOpen)}
                                     className="flex items-center justify-between w-full px-4 py-2 text-left"
@@ -170,9 +171,9 @@ export default function Navbar() {
                                         <li><a href="#" className="block px-4 py-2 text-sm">UI/UX Design</a></li>
                                     </ul>
                                 )}
-                            </li>
-                            <li><a href="#" className="block px-4 py-2">Projects</a></li>
-                            <li>
+                            </li> */}
+                            <li><a href="/privacyPolicy" className="block px-4 py-2">Privacy Policy</a></li>
+                            {/* <li>
                                 <button
                                     onClick={() => setPagesOpen(!pagesOpen)}
                                     className="flex items-center justify-between w-full px-4 py-2 text-left"
@@ -188,15 +189,15 @@ export default function Navbar() {
                                         <li><a href="#" className="block px-4 py-2 text-sm">Testimonials</a></li>
                                     </ul>
                                 )}
-                            </li>
-                            <li><a href="#" className="block px-4 py-2">Blog</a></li>
+                            </li> */}
+                            <li><Link href="/#contact" className="block px-4 py-2">Contact</Link></li>
                             <li>
-                                <a
-                                    href="#"
+                                <Link
+                                    href="/dashboard"
                                     className="block px-4 py-2 border border-mySecondary-500 rounded-full text-center hover:bg-mySecondary-500 hover:text-white dark:hover:text-black transition"
                                 >
-                                    Contact Us
-                                </a>
+                                    Login
+                                </Link>
                             </li>
                         </ul>
                     </div>
