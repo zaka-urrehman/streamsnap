@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { PLANS } from '@/constants/Pages'
+import { useSubscription } from '@/hooks/use-subscription'
 import { cn } from '@/lib/utils'
 import { CircleCheck } from 'lucide-react'
 import React from 'react'
@@ -11,6 +12,7 @@ type Props = {
 }
 
 const PaymentCard = ({ current, label, landing }: Props) => {
+    const { onSubscribe, isProcessing } = useSubscription()
     return (
         <div
             className={cn(
@@ -85,17 +87,14 @@ const PaymentCard = ({ current, label, landing }: Props) => {
                     </Button>
                 ) : (
                     <Button
+                        onClick={onSubscribe}
                         className={cn(
                             'rounded-full mt-5 border border-gray-400 bg-transparent hover:bg-mySecondary-400 text-gray-800 dark:text-white ',
                             label === current && ' bg-green-500 text-white'
                         )}
                         disabled={label === current}
                     >
-                        {label === current
-                            ? 'Active'
-                            : current === 'PRO'
-                                ? 'Downgrade'
-                                : 'Upgrade'}
+                        {label === current ? 'Active' : current === 'PRO' ? 'Downgrade' : 'Upgrade'}
                     </Button>
                 )}
             </div>
