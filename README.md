@@ -1,1 +1,1 @@
-Streamsnap is an AI powered instagram automation tool. It automates your DMs and comments. it provides a smart AI that respongs to your DMs and comments. The Smart AI is customizable and you can set the behaviour according to your preferences. 
+Streamsnap is an AI powered instagram automation tool. It automates your DMs and comments. it provides a smart AI that responds to your DMs and comments. The Smart AI is customizable and you can set the behaviour according to your preferences. 
