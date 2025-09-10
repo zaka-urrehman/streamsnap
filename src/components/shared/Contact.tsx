@@ -36,7 +36,7 @@ export default function Contact() {
                             <div className="space-y-4 mt-4">
                                 <div>
                                     <h3 className="text-lg font-semibold text-mySecondary-400 mb-2">Email</h3>
-                                    <p className=" text-gray-500 dark:text-gray-300">support@streamsnap.com</p>
+                                    <p className=" text-gray-500 dark:text-gray-300">abc@example.com</p>
                                 </div>
                                 <div>
                                     <h3 className="text-lg font-semibold text-mySecondary-400 mb-2">Office</h3>
