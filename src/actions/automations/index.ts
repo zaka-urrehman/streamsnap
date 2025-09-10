@@ -4,7 +4,7 @@ import { findUser } from "../user/queries"
 import { addKeyWord, addListener, addPost, addTrigger, createAutomation, deleteKeywordQuery, findAutomation, getAutomations, updateAutomation } from "./queries"
 
 
-export const getAllAutomations = async () => {  
+export const getAllAutomations = async () => {
     const user = await getCurrentUser()
 
     try {
@@ -30,7 +30,7 @@ export const createAutomations = async (id?: string) => {
         }
         return { status: 404, data: 'Oops! something went wrong' }
 
-    } catch (error) {       
+    } catch (error) {
         return { status: 500, data: 'Internal server error' }
     }
 }
@@ -39,7 +39,7 @@ export const createAutomations = async (id?: string) => {
 
 export const getAutomationInfo = async (id: string) => {
     const user = await getCurrentUser()
-   
+
     try {
         const automation = await findAutomation(id)
         if (automation) {
@@ -116,6 +116,7 @@ export const savePosts = async (
 
 
 export const saveListener = async (autmationId: string, listener: 'SMARTAI' | 'MESSAGE', prompt: string, reply?: string) => {
+console.log("inside SaveListener function")
     await getCurrentUser()
     try {
         const create = await addListener(autmationId, listener, prompt, reply)
@@ -127,6 +128,7 @@ export const saveListener = async (autmationId: string, listener: 'SMARTAI' | 'M
         return { status: 500, data: 'Oops! something went wrong' }
     }
 }
+
 
 export const saveTrigger = async (automationId: string, trigger: string[]) => {
     await getCurrentUser()

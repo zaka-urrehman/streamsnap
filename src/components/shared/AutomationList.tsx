@@ -49,7 +49,7 @@ const AutomationList = () => {
                 <Link
                     href={`${pathname}/${automation.id}`}
                     key={automation.id}
-                    className="bg-[#1D1D1D] hover:opacity-80 transition duration-100 rounded-xl p-5 border-[1px] radial--gradient--automations flex border-[#545454]"
+                    className=" hover:opacity-80 transition duration-100 rounded-xl p-5 border-[1px] radial--gradient--automations flex border-[#545454]"
                 >
                     <div className="flex flex-col flex-1 items-start">
                         <h2 className="text-xl font-semibold">{automation.name}</h2>
@@ -58,7 +58,8 @@ const AutomationList = () => {
                         </p> */}
 
                         {automation.keywords.length > 0 ? (
-                            <div className="flex gap-x-2 flex-wrap mt-3">
+                            <div className="flex gap-x-2 items-center flex-wrap mt-3">
+                                <span className='font-bold'>Keywords: </span>
                                 {
                                     //@ts-ignore
                                     automation.keywords.map((keyword, key) => (
@@ -104,7 +105,7 @@ const AutomationList = () => {
                                 Smart AI
                             </GradientButton>
                         ) : (
-                            <Button className="bg-background-80 hover:bg-background-80 text-white">
+                            <Button className="bg-background-80 hover:bg-background-80 text-black dark:text-white">
                                 Standard
                             </Button>
                         )}

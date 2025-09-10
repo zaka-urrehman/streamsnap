@@ -65,10 +65,28 @@ const ThenAction = ({ id }: Props) => {
                     onSubmit={onFormSubmit}
                     className="flex flex-col gap-y-2"
                 >
+                    {/* UPLOAD DOC FOR RAG
+                    {Listener === "SMARTAI" &&
+                        <>
+                            <label
+                                className='bg-gradient-to-br from-mySecondary-500 to to-blue-800 rounded-lg self-start px-2'
+                                htmlFor="rag"
+                            >
+                                upload file for RAG
+                            </label>
+
+                            <Input
+                                type='file'
+                                {...register('rag')}
+                                className=' '
+                            />
+                        </>
+                    } */}
+                    
                     <Textarea
                         placeholder={
                             Listener === 'SMARTAI'
-                                ? 'Add a prompt that your smart ai can use...'
+                                ? 'Add some instructions for your smart ai...'
                                 : 'Add a message you want send to your customers'
                         }
                         {...register('prompt')}

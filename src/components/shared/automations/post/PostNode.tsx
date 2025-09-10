@@ -1,7 +1,7 @@
 'use client'
 import { Separator } from '@/components/ui/separator'
 import { useQueryAutomation } from '@/hooks/user-queries'
-import { InstagramBlue, Warning } from '@/icons'
+import {  InstagramCyan, Warning } from '@/icons'
 import Image from 'next/image'
 import React from 'react'
 
@@ -30,7 +30,7 @@ const PostNode = ({ id }: Props) => {
                 </div>
                 <div className="bg-background-80 p-3 rounded-xl flex flex-col gap-y-2">
                     <div className="flex gap-x-2 items-center">
-                        <InstagramBlue />
+                        <InstagramCyan />
                         <p className="font-bold text-lg">These posts</p>
                     </div>
                     <div className="flex gap-x-2 flex-wrap mt-3">

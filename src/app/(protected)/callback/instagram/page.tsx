@@ -9,14 +9,16 @@ interface Props {
 
 const Page = async ({ searchParams: { code } }: Props) => {
     if (code) {
-        console.log(code)
+        console.log("this is the code: ", code)
         const user = await onIntegrate(code.split("#_")[0])
+        console.log("this is the user: ", user)
         if (user.status == 200) {
-            redirect(`/dashboard/${user?.data?.firstname!}${user?.data?.lastname!}`)
+            "redirecting to dashboard"
+            return redirect(`/dashboard/${user?.data?.firstname!}${user?.data?.lastname!}`)
         }
     }
     return (
-        redirect('sign-up')
+        redirect('/instagram-auth-failed')
     )
 }
 

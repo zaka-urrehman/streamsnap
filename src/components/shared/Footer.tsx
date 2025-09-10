@@ -5,7 +5,7 @@ import React from 'react'
 const Footer = () => {
     return (
         <section className='  p-1 md:p-2 '>
-            <div className='bg-zinc-900 mx-auto p-6 lg:p-8 max-w-7xl border border-mySecondary-600  rounded-3xl'>
+            <div className='bg-zinc-200 dark:bg-zinc-900 mx-auto p-6 lg:p-8 max-w-7xl border border-mySecondary-600  rounded-3xl'>
                 <div className='grid md:grid-cols-2 '>
 
                     <div className='my-4'>
@@ -13,20 +13,20 @@ const Footer = () => {
                         <div className="text-2xl font-bold">
                             <span className="text-mySecondary-400">Stream</span>Snap
                         </div>
-                        <Link href={'/'}><p className='text-gray-400 md:my-1'>Home</p></Link>
-                        <Link href={'/'}><p className='text-gray-400 md:my-1'>Privacy Policy</p></Link>
+                        <Link href={'/'}><p className=' text-gray-800 dark:text-gray-400 md:my-1'>Home</p></Link>
+                        <Link href={'/'}><p className=' text-gray-800 dark:text-gray-400 md:my-1'>Privacy Policy</p></Link>
                     </div>
 
                     <div className='my-4'>
-                        <h3 className='my-1 md:my-3 font-semibold text-lg md:text-xl relative text-white'>Contact Us</h3>
-                        <p className='text-gray-400 flex items-center gap-x-2 text-sm md:text-base'> <Phone size={15} /> +92 012 3456789</p>
-                        <p className='text-gray-400 flex items-center gap-x-2 text-sm md:text-base'> <Mail size={15} />abc@xyz.com</p>
+                        <h3 className='my-1 md:my-3 font-semibold text-lg md:text-xl relative dark:text-white'>Contact Us</h3>
+                        <p className='text-gray-800 dark:text-gray-400 flex items-center gap-x-2 text-sm md:text-base'> <Phone size={15} /> +92 012 3456789</p>
+                        <p className='text-gray-800 dark:text-gray-400 flex items-center gap-x-2 text-sm md:text-base'> <Mail size={15} />abc@xyz.com</p>
 
                         <div className='flex mt-5 gap-x-3 md:gap-x-4'>
-                            <div className='bg-gradient-to-br from-mySecondary-500 to-mySecondary-800 rounded-lg p-1'><Linkedin className='h-5 w-5  md:h-6 md:w-6' /></div>
-                            <div className='bg-gradient-to-br from-mySecondary-500 to-mySecondary-800 rounded-lg p-1'><Github className='h-5 w-5  md:h-6 md:w-6' /></div>
-                            <div className='bg-gradient-to-br from-mySecondary-500 to-mySecondary-800 rounded-lg p-1'><Facebook className='h-5 w-5  md:h-6 md:w-6' /></div>
-                            <div className='bg-gradient-to-br from-mySecondary-500 to-mySecondary-800 rounded-lg p-1'><Twitter className='h-5 w-5  md:h-6 md:w-6' /></div>
+                            <div className='bg-gradient-to-br from-mySecondary-500 to-mySecondary-800 rounded-lg p-1'><Linkedin className='h-5 w-5  md:h-6 md:w-6  text-white dark:text-black' /></div>
+                            <div className='bg-gradient-to-br from-mySecondary-500 to-mySecondary-800 rounded-lg p-1'><Github className='h-5 w-5  md:h-6 md:w-6 text-white dark:text-black' /></div>
+                            <div className='bg-gradient-to-br from-mySecondary-500 to-mySecondary-800 rounded-lg p-1'><Facebook className='h-5 w-5  md:h-6 md:w-6 text-white dark:text-black' /></div>
+                            <div className='bg-gradient-to-br from-mySecondary-500 to-mySecondary-800 rounded-lg p-1'><Twitter className='h-5 w-5  md:h-6 md:w-6 text-white dark:text-black' /></div>
                         </div>
                     </div>
 

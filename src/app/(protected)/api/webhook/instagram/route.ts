@@ -4,6 +4,8 @@ import { sendDM, sendPrivateMessage } from "@/lib/fetch"
 import { client } from "@/lib/prisma"
 import { NextRequest, NextResponse } from "next/server"
 import { GoogleGenerativeAI } from "@google/generative-ai"
+import { generateAIResponse } from "@/lib/smart-ai/smart_ai"
+import { getAgentResponseManually } from "@/lib/ai/agent"
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY as string);
 const geminiModel = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -16,7 +18,16 @@ export async function GET(req: NextRequest) {
 
 export async function POST(req: NextRequest) {
     const webhookPayload = await req.json()
-    console.log(webhookPayload)
+    console.log("webhook payload: ", webhookPayload)
+    if (webhookPayload?.entry?.[0]?.id === webhookPayload?.entry?.[0]?.messaging?.[0]?.sender?.id || webhookPayload?.entry?.[0]?.id === webhookPayload?.entry?.[0]?.changes?.[0]?.value?.from?.id) {
+        console.log("this event is fired by own reply")
+        return NextResponse.json(
+            {
+                message: 'Event from our own response detected',
+            },
+            { status: 200 }
+        )
+    }
     let matcher
 
     try {
@@ -77,27 +88,32 @@ export async function POST(req: NextRequest) {
                         automation.listener.listener === 'SMARTAI' &&
                         automation.User?.subscription?.plan === 'PRO'
                     ) {
-
-                        const prompt = `${automation.listener?.prompt}: Keep responses under 2 sentences`;
-                        const smartAIResponse = await geminiModel.generateContent(prompt);
-                        const smartAIText = smartAIResponse.response.text()
+                        const message = webhookPayload.entry[0].messaging[0].message.text
+                        const customer_history = await getChatHistory(
+                            webhookPayload.entry[0].messaging[0].recipient.id,
+                            webhookPayload.entry[0].messaging[0].sender.id
+                        )
+                        let chatHistory = customer_history.history.slice(-8)
+                        const smartAIText = await generateAIResponse(message, automation.listener?.prompt!, chatHistory)
 
                         if (smartAIText) {
-                            const receiver = createChatHistory(
+                            console.log("this is the smart AI text: ", smartAIText)
+                            const DMSender = createChatHistory(
                                 automation.id,
-                                webhookPayload.entry[0].id,
                                 webhookPayload.entry[0].messaging[0].sender.id,
+                                webhookPayload.entry[0].id,
                                 webhookPayload.entry[0].messaging[0].message.text
                             );
-
-                            const sender = createChatHistory(
+                            console.log("DM sender: ", DMSender)
+                            const DMResponder = createChatHistory(
                                 automation.id,
                                 webhookPayload.entry[0].id,
                                 webhookPayload.entry[0].messaging[0].sender.id,
                                 smartAIText
                             );
+                            console.log("DM responder: ", DMResponder)
 
-                            await client.$transaction([receiver, sender]);
+                            await client.$transaction([DMSender, DMResponder]);
 
                             const directMessage = await sendDM(
                                 webhookPayload.entry[0].id,
@@ -105,9 +121,11 @@ export async function POST(req: NextRequest) {
                                 smartAIText,
                                 automation.User?.integrations[0].token!
                             );
+                            console.log("direct message status: ", directMessage.status)
 
                             if (directMessage.status === 200) {
                                 const tracked = await trackResponses(automation.id, "DM");
+                                console.log("tracked: ", tracked)
                                 if (tracked) {
                                     return NextResponse.json(
                                         { message: "Message sent" },
@@ -225,9 +243,11 @@ export async function POST(req: NextRequest) {
                             automation.listener.listener === 'SMARTAI' &&
                             automation.User?.subscription?.plan === 'PRO'
                         ) {
-                            const prompt = `${automation.listener?.prompt}: Keep responses under 2 sentences`;
+                            const prompt = `${automation.listener?.prompt}: Keep responses under 3 sentences`;
+                            console.log("prompt: ", prompt)
                             const smartAIResponse = await geminiModel.generateContent(prompt);
                             const smartAIText = smartAIResponse.response.text()
+                            console.log("AI Response: ", smartAIText)
 
 
 
@@ -241,21 +261,21 @@ export async function POST(req: NextRequest) {
                             //     ],
                             // })
                             if (smartAIText) {
-                                const reciever = createChatHistory(
+                                const commenter = createChatHistory(
                                     automation.id,
-                                    webhookPayload.entry[0].id,
                                     webhookPayload.entry[0].changes[0].value.from.id,
+                                    webhookPayload.entry[0].id,
                                     webhookPayload.entry[0].changes[0].value.text
                                 )
 
-                                const sender = createChatHistory(
+                                const AIresponder = createChatHistory(
                                     automation.id,
                                     webhookPayload.entry[0].id,
                                     webhookPayload.entry[0].changes[0].value.from.id,
                                     smartAIText
                                 )
 
-                                await client.$transaction([reciever, sender])
+                                await client.$transaction([commenter, AIresponder])
 
                                 const direct_message = await sendPrivateMessage(
                                     webhookPayload.entry[0].id,
@@ -284,10 +304,13 @@ export async function POST(req: NextRequest) {
         }
         // if matched keyword not found. it is possible that the user has sent the keyword previosly and is now continuing the chat. In that case we will look in the chat history
         if (!matcher) {
+            console.log('Not matched')
             const customer_history = await getChatHistory(
                 webhookPayload.entry[0].messaging[0].recipient.id,
                 webhookPayload.entry[0].messaging[0].sender.id
             )
+
+            console.log('customer history: ', customer_history)
 
             if (customer_history.history.length > 0) {
                 const automation = await findAutomation(customer_history.automationId!)
@@ -296,9 +319,18 @@ export async function POST(req: NextRequest) {
                     automation?.User?.subscription?.plan === 'PRO' &&
                     automation.listener?.listener === 'SMARTAI'
                 ) {
-                    const prompt = `${automation.listener?.prompt}: Keep responses under 2 sentences`;
-                    const smartAIResponse = await geminiModel.generateContent(prompt);
-                    const smartAIText = smartAIResponse.response.text()
+                    // const prompt = `${automation.listener?.prompt}: Keep responses under 2 sentences`;
+                    // console.log("prompt-2: ", prompt)
+                    // const smartAIResponse = await geminiModel.generateContent(prompt);
+                    // const smartAIText = smartAIResponse.response.text()
+                    // console.log("AI Response-2: ", smartAIText)
+                    const message = webhookPayload.entry[0].messaging[0].message.text
+                    let smartAIText;
+                    let chatHistory = customer_history.history.slice(-8)
+                    console.log("chat history: ", chatHistory)
+                    if (message) {
+                        smartAIText = await generateAIResponse(message, automation.listener?.prompt!, chatHistory)
+                    }
 
                     // const smart_ai_message = await openai.chat.completions.create({
                     //     model: 'gpt-4o',
@@ -316,20 +348,21 @@ export async function POST(req: NextRequest) {
                     // })
 
                     if (smartAIText) {
-                        const reciever = createChatHistory(
+                        const DMSender = createChatHistory(
                             automation.id,
-                            webhookPayload.entry[0].id,
                             webhookPayload.entry[0].messaging[0].sender.id,
+                            webhookPayload.entry[0].id,
                             webhookPayload.entry[0].messaging[0].message.text
                         )
 
-                        const sender = createChatHistory(
+                        const DMResponder = createChatHistory(
                             automation.id,
                             webhookPayload.entry[0].id,
                             webhookPayload.entry[0].messaging[0].sender.id,
                             smartAIText
                         )
-                        await client.$transaction([reciever, sender])
+
+                        await client.$transaction([DMSender, DMResponder])
                         const direct_message = await sendDM(
                             webhookPayload.entry[0].id,
                             webhookPayload.entry[0].messaging[0].sender.id,
@@ -339,7 +372,6 @@ export async function POST(req: NextRequest) {
 
                         if (direct_message.status === 200) {
                             //if successfully send we return
-
                             return NextResponse.json(
                                 {
                                     message: 'Message sent',

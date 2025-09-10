@@ -46,3 +46,40 @@ export const duplicateValidation = (arr: string[], el: string) => {
         return arr
     }
 }
+
+
+export const convertToBase64 = (file: File): Promise<string> => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = (error) => reject(error);
+    });
+};
+
+// A simple text splitter based on double newlines.
+function splitTextIntoChunks(text: string, maxChunkLength: number = 1000): string[] {
+    // First, split on double newlines as a rough paragraph delimiter.
+    const paragraphs = text.split(/\n\s*\n/);
+    const chunks: string[] = [];
+
+    for (const para of paragraphs) {
+        // If a paragraph is too long, further split by sentence boundaries.
+        if (para.length > maxChunkLength) {
+            const sentences = para.split(/(?<=[.?!])\s+/);
+            let chunk = "";
+            for (const sentence of sentences) {
+                if ((chunk + sentence).length > maxChunkLength) {
+                    chunks.push(chunk.trim());
+                    chunk = sentence;
+                } else {
+                    chunk += " " + sentence;
+                }
+            }
+            if (chunk) chunks.push(chunk.trim());
+        } else {
+            chunks.push(para.trim());
+        }
+    }
+    return chunks.filter((c) => c.length > 0);
+}
